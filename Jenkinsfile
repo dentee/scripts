@@ -1,9 +1,9 @@
 pipeline {
   agent any
   stages {
-    stage('') {
+    stage('error') {
       steps {
-        powershell(script: 'node {     def status = powershell(returnStatus: true, script: \'ipconfig\')     if (status == 0) {         // Success!     } }', returnStatus: true)
+        powershell(script: 'node {     def status = pwsh(returnStatus: true, script: \'ifconfig\')     if (status == 0) {         // Success!     } }', returnStatus: true, returnStdout: true)
       }
     }
   }
