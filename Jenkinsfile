@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('error') {
       steps {
-        powershell(script: 'node {     def status = pwsh(returnStatus: true, script: \'ifconfig\')     if (status == 0) {         // Success!     } }', returnStatus: true, returnStdout: true)
+        powershell(script: 'node {     def msg = powershell(returnStdout: true, script: \'Write-Output "PowerShell is mighty!"\')     println msg }', returnStatus: true, returnStdout: true)
       }
     }
   }
