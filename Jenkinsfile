@@ -1,9 +1,16 @@
 pipeline {
   agent any
   stages {
-    stage('error') {
+    stage('Hello World Terminal') {
       steps {
-        powershell(script: 'node {     def msg = pwsh(returnStdout: true, script: \'Write-Output "PowerShell is mighty!"\')     println msg }', returnStatus: true, returnStdout: true)
+        sh ''' #!/bin/sh
+    open -a /Applications/Utilities/Terminal.app
+    osascript << END
+    tell application "Terminal"
+        echo hello
+        pause 10
+    end tell
+    END'''
       }
     }
   }
