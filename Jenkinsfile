@@ -1,16 +1,9 @@
 pipeline {
   agent any
   stages {
-    stage('Hello World Terminal') {
+    stage('First Step') {
       steps {
-        sh '''#!/bin/sh
-open -a /Applications/Utilities/Terminal.app
-osascript << END
-tell application "Terminal"
-echo hello
-pause 10
-end tell
-END'''
+        sh 'curl http://google.com'
       }
     }
   }
